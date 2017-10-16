@@ -1,8 +1,8 @@
 package com.example.dhanushka.dagger2application.component;
 
 import com.example.dhanushka.dagger2application.ActivityModule;
-import com.example.dhanushka.dagger2application.MainActivity;
 import com.example.dhanushka.dagger2application.PerActivity;
+import com.example.dhanushka.dagger2application.view.BaseActivity;
 
 import dagger.Component;
 
@@ -14,5 +14,6 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
 
-    void inject(MainActivity mainActivity);
+    void inject(BaseActivity baseActivity);
+//    void inject(MainActivity mainActivity);
 }

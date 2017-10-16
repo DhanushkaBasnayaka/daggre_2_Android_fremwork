@@ -30,8 +30,10 @@ public class ProjectApplication extends Application {
         component = DaggerApplicationComponent.builder()
                 .contextModule(new ContextModule(this))
                 .build();
+
         // add network component
         apiService = component.getApplicatonService();
+
         // add picasso component
         picasso = component.getPicasso();
     }

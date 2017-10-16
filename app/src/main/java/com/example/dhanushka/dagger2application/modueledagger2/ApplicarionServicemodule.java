@@ -41,7 +41,7 @@ public class ApplicarionServicemodule {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okHttpClient)
-                .baseUrl("")
+                .baseUrl("https://api.github.com/")
                 .build();
     }
 
