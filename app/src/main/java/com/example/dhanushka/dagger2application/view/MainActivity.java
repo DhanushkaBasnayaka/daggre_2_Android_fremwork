@@ -5,7 +5,11 @@ import android.widget.ImageView;
 
 import com.example.dhanushka.dagger2application.R;
 import com.example.dhanushka.dagger2application.component.ApplicationComponent;
-import com.example.dhanushka.dagger2application.network.UserNetworkCall;
+import com.example.dhanushka.dagger2application.module.User;
+import com.example.dhanushka.dagger2application.network.ApiService;
+import com.example.dhanushka.dagger2application.network.CallApi;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -13,14 +17,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements CallApi.GetSDPListCallback {
 
 
     @BindView(R.id.image)
     ImageView imageiew;
 
     @Inject
-    UserNetworkCall mDataManager;
+    CallApi mDataManager;
+
+    @Inject
+    ApiService mSicModul;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +35,28 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        picasso.load("http://ecx.images-amazon.com/images/I/31daei1hJ8L._SL500_.jpg")
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(imageiew);
+//        picasso.load("http://ecx.images-amazon.com/images/I/31daei1hJ8L._SL500_.jpg")
+//                .placeholder(R.drawable.ic_launcher_background)
+//                .into(imageiew);
 
-
-        mDataManager.getServercal();
+        mDataManager.getServercal(this);
 
     }
 
     @Override
     protected void inject(ApplicationComponent component) {
-        this.picasso = component.getPicasso();
-//        this.apiService = component.getApplicatonService();
+        this.mSicModul = component.getApplicatonService();
+        this.mDataManager = component.getClasesink();
+
+    }
+
+    @Override
+    public void onSuccessGetSDPList(List<User> sdpList) {
+
+    }
+
+    @Override
+    public void onFailedGetSDPList(String message) {
+
     }
 }

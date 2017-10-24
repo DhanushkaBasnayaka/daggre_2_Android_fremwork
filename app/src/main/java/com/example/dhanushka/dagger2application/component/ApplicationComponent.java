@@ -4,7 +4,9 @@ import com.example.dhanushka.dagger2application.ActivityModule;
 import com.example.dhanushka.dagger2application.ApplicationScope;
 import com.example.dhanushka.dagger2application.modueledagger2.ApplicarionServicemodule;
 import com.example.dhanushka.dagger2application.modueledagger2.PicassoModule;
+import com.example.dhanushka.dagger2application.module.SicModul;
 import com.example.dhanushka.dagger2application.network.ApiService;
+import com.example.dhanushka.dagger2application.network.CallApi;
 import com.squareup.picasso.Picasso;
 
 import dagger.Component;
@@ -14,12 +16,17 @@ import dagger.Component;
  */
 
 @ApplicationScope
-@Component(modules = {ApplicarionServicemodule.class, PicassoModule.class, ActivityModule.class})
+@Component(modules = {ApplicarionServicemodule.class, PicassoModule.class, ActivityModule.class, SicModul.class})
 public interface ApplicationComponent {
 
     Picasso getPicasso();
 
     ApiService getApplicatonService();
+
+    CallApi getClasesink();
+
+
+
 //    DataManager getDataManager();
 
 }

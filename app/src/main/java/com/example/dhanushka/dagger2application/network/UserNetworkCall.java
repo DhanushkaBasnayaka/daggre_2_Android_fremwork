@@ -1,53 +1,33 @@
 package com.example.dhanushka.dagger2application.network;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.example.dhanushka.dagger2application.component.ApplicationComponent;
-import com.example.dhanushka.dagger2application.module.GithubRepo;
+import com.example.dhanushka.dagger2application.ApplicationContext;
+import com.example.dhanushka.dagger2application.ApplicationScope;
+import com.example.dhanushka.dagger2application.modueledagger2.ContextModule;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import dagger.Module;
+import dagger.Provides;
 
 /**
  * Created by dhanushka on 12/10/2017.
  */
-
+@Module(includes = {ContextModule.class})
 public class UserNetworkCall {
 
-    @Inject
-    ApiService apiService;
-    private Context mContext;
 
-    @Inject
-    public UserNetworkCall(Context context, ApplicationComponent mApplicationComponent) {
-        apiService = mApplicationComponent.getApplicatonService();
+//    @Provides
+//    @ApplicationScope
+//    public UserNetworkCall(@ApplicationContext Context context) {
+//        return context;
+//    }
+
+    @Provides
+    @ApplicationScope
+    public Context apiService(@ApplicationContext Context context) {
+
+        return context;
     }
 
-
-    public void getServercal() {
-
-        Call<List<GithubRepo>> reposCall;
-
-        reposCall = apiService.getAllRepos();
-
-        reposCall.enqueue(new Callback<List<GithubRepo>>() {
-            @Override
-            public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
-                Log.d("rgfgfg", "gfgghrtgrthw");
-
-            }
-
-            @Override
-            public void onFailure(Call<List<GithubRepo>> call, Throwable t) {
-
-            }
-        });
-    }
 
 }
