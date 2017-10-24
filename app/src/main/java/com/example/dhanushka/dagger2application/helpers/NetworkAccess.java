@@ -15,11 +15,11 @@ public class NetworkAccess {
         mContext = context;
     }
 
-    public static boolean isNetworkAvailable(final Context context) {
-        mContext = context;
+    public static boolean isNetworkAvailable() {
+
         boolean state = isInternetAvailable();
         if (!state) {
-            //Toast.makeText(mContext, R.string.no_internet, Toast.LENGTH_LONG).show();
+
         }
         return state;
     }

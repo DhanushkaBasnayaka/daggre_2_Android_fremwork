@@ -5,6 +5,7 @@ import android.app.Application;
 
 import com.example.dhanushka.dagger2application.component.ApplicationComponent;
 import com.example.dhanushka.dagger2application.component.DaggerApplicationComponent;
+import com.example.dhanushka.dagger2application.helpers.NetworkAccess;
 import com.example.dhanushka.dagger2application.modueledagger2.ContextModule;
 import com.example.dhanushka.dagger2application.network.ApiService;
 import com.example.dhanushka.dagger2application.network.CallApi;
@@ -19,6 +20,7 @@ public class ProjectApplication extends Application {
     private ApiService apiService;
     private Picasso picasso;
     private CallApi mCallApi;
+    private NetworkAccess mNetworkAccess;
 
     public static ProjectApplication get(Activity activity) {
         return (ProjectApplication) activity.getApplication();
@@ -28,17 +30,15 @@ public class ProjectApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //create dagger component
+
         component = DaggerApplicationComponent.builder()
                 .contextModule(new ContextModule(this))
                 .build();
 
-        // add network component
         apiService = component.getApplicatonService();
-
-        // add picasso component
         picasso = component.getPicasso();
         mCallApi = component.getClasesink();
+        mNetworkAccess = component.getNetworkAccess();
     }
 
     public ApplicationComponent getcomponent() {

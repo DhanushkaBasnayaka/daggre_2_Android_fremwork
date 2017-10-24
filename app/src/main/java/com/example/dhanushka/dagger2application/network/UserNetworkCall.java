@@ -16,12 +16,6 @@ import dagger.Provides;
 public class UserNetworkCall {
 
 
-//    @Provides
-//    @ApplicationScope
-//    public UserNetworkCall(@ApplicationContext Context context) {
-//        return context;
-//    }
-
     @Provides
     @ApplicationScope
     public Context apiService(@ApplicationContext Context context) {

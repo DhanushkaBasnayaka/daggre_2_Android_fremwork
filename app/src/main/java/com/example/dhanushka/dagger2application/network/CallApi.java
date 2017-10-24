@@ -26,6 +26,7 @@ public class CallApi {
     private Context mContext;
 
 
+
     public CallApi(Context context, ApiService m) {
         mContext = context;
         mSicModul = m;
@@ -34,7 +35,7 @@ public class CallApi {
 
     public void getServercal(final GetSDPListCallback callback) {
 
-        if (!NetworkAccess.isNetworkAvailable(mContext)) {
+        if (!NetworkAccess.isNetworkAvailable()) {
             callback.onFailedGetSDPList(null);
             return;
         }
