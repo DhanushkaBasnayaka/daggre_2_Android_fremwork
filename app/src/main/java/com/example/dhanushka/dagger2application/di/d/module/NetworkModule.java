@@ -1,9 +1,9 @@
-package com.example.dhanushka.dagger2application.modueledagger2;
+package com.example.dhanushka.dagger2application.di.d.module;
 
 import android.content.Context;
 
-import com.example.dhanushka.dagger2application.ApplicationContext;
-import com.example.dhanushka.dagger2application.ApplicationScope;
+import com.example.dhanushka.dagger2application.di.d.ApplicationContext;
+import com.example.dhanushka.dagger2application.di.d.ApplicationScope;
 
 import java.io.File;
 

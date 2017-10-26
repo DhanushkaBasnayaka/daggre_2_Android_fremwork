@@ -1,7 +1,9 @@
-package com.example.dhanushka.dagger2application;
+package com.example.dhanushka.dagger2application.di.d.module;
 
 import android.app.Activity;
 import android.content.Context;
+
+import com.example.dhanushka.dagger2application.di.d.ApplicationScope;
 
 import javax.inject.Named;
 

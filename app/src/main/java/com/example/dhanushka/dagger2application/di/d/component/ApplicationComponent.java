@@ -1,12 +1,13 @@
-package com.example.dhanushka.dagger2application.component;
+package com.example.dhanushka.dagger2application.di.d.component;
 
-import com.example.dhanushka.dagger2application.ActivityModule;
-import com.example.dhanushka.dagger2application.ApplicationScope;
+
+import com.example.dhanushka.dagger2application.di.d.ApplicationScope;
+import com.example.dhanushka.dagger2application.di.d.module.ActivityModule;
+import com.example.dhanushka.dagger2application.di.d.module.ApplicarionServicemodule;
+import com.example.dhanushka.dagger2application.di.d.module.NetworkAccessModule;
+import com.example.dhanushka.dagger2application.di.d.module.PicassoModule;
+import com.example.dhanushka.dagger2application.di.d.module.SicModul;
 import com.example.dhanushka.dagger2application.helpers.NetworkAccess;
-import com.example.dhanushka.dagger2application.modueledagger2.ApplicarionServicemodule;
-import com.example.dhanushka.dagger2application.modueledagger2.NetworkAccessModule;
-import com.example.dhanushka.dagger2application.modueledagger2.PicassoModule;
-import com.example.dhanushka.dagger2application.module.SicModul;
 import com.example.dhanushka.dagger2application.network.ApiService;
 import com.example.dhanushka.dagger2application.network.CallApi;
 import com.squareup.picasso.Picasso;
@@ -24,6 +25,5 @@ public interface ApplicationComponent {
     Picasso getPicasso();
     ApiService getApplicatonService();
     CallApi getClasesink();
-
     NetworkAccess getNetworkAccess();
 }

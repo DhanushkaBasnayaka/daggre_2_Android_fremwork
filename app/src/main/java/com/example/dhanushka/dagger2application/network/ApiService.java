@@ -1,7 +1,7 @@
 package com.example.dhanushka.dagger2application.network;
 
-import com.example.dhanushka.dagger2application.module.GithubRepo;
-import com.example.dhanushka.dagger2application.module.User;
+import com.example.dhanushka.dagger2application.network.model.GithubRepo;
+import com.example.dhanushka.dagger2application.network.model.User;
 
 import java.util.List;
 

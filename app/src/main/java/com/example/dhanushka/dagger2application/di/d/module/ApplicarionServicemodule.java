@@ -1,6 +1,6 @@
-package com.example.dhanushka.dagger2application.modueledagger2;
+package com.example.dhanushka.dagger2application.di.d.module;
 
-import com.example.dhanushka.dagger2application.ApplicationScope;
+import com.example.dhanushka.dagger2application.di.d.ApplicationScope;
 import com.example.dhanushka.dagger2application.network.ApiService;
 import com.example.dhanushka.dagger2application.network.DateTimeConverter;
 import com.google.gson.Gson;

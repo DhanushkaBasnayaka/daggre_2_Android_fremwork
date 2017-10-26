@@ -1,4 +1,4 @@
-package com.example.dhanushka.dagger2application;
+package com.example.dhanushka.dagger2application.di.d;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

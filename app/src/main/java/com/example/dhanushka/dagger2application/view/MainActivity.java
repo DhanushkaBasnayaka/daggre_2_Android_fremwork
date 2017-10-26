@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.dhanushka.dagger2application.R;
-import com.example.dhanushka.dagger2application.component.ApplicationComponent;
-import com.example.dhanushka.dagger2application.module.User;
+import com.example.dhanushka.dagger2application.di.d.component.ApplicationComponent;
 import com.example.dhanushka.dagger2application.network.ApiService;
 import com.example.dhanushka.dagger2application.network.CallApi;
+import com.example.dhanushka.dagger2application.network.model.User;
+import com.example.dhanushka.dagger2application.view.base.BaseActivity;
 
 import java.util.List;
 

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.dhanushka.dagger2application.helpers.NetworkAccess;
-import com.example.dhanushka.dagger2application.module.GithubRepo;
-import com.example.dhanushka.dagger2application.module.User;
+import com.example.dhanushka.dagger2application.network.model.GithubRepo;
+import com.example.dhanushka.dagger2application.network.model.User;
 
 import java.util.List;
 
