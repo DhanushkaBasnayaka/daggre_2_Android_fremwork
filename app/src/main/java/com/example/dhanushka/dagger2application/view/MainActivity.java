@@ -24,11 +24,9 @@ public class MainActivity extends BaseActivity implements CallApi.GetSDPListCall
     @BindView(R.id.image)
     ImageView imageiew;
 
-    @Inject
-    CallApi mDataManager;
 
-    @Inject
-    ApiService mSicModul;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +42,12 @@ public class MainActivity extends BaseActivity implements CallApi.GetSDPListCall
 
     }
 
-    @Override
-    protected void inject(ApplicationComponent component) {
-        this.mSicModul = component.getApplicatonService();
-        this.mDataManager = component.getClasesink();
-
-    }
+//    @Override
+//    protected void inject(ApplicationComponent component) {
+//        this.mSicModul = component.getApplicatonService();
+//        this.mDataManager = component.getClasesink();
+//
+//    }
 
     @Override
     public void onSuccessGetSDPList(List<User> sdpList) {

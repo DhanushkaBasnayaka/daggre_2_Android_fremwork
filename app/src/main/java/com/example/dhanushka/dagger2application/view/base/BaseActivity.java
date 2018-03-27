@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.dhanushka.dagger2application.ProjectApplication;
 import com.example.dhanushka.dagger2application.di.d.component.ActivityComponent;
 import com.example.dhanushka.dagger2application.di.d.component.ApplicationComponent;
+import com.example.dhanushka.dagger2application.di.d.component.DaggerActivityComponent;
+import com.example.dhanushka.dagger2application.di.d.module.ActivityModule;
+import com.example.dhanushka.dagger2application.network.ApiService;
+import com.example.dhanushka.dagger2application.network.CallApi;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -15,18 +19,40 @@ import javax.inject.Inject;
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
-    Picasso picasso;
+    protected Picasso picasso;
+
+    @Inject
+   protected CallApi mDataManager;
+
+    @Inject
+    protected ApiService mSicModul;
+
 
     private ActivityComponent activityComponent;
+
+
+    public ActivityComponent getActivityComponent() {
+        if (activityComponent == null) {
+            activityComponent = DaggerActivityComponent.builder()
+                    .activityModule(new ActivityModule(this))
+                    .applicationComponent(ProjectApplication.get(this).getcomponent())
+                    .build();
+        }
+        return activityComponent;
+    }
+
+//    public ApplicationComponent getActivityComponent() {
+//        if (activityComponent == null) {
+//             activityComponent = ((ProjectApplication) getApplication()).getcomponent();
+//        }
+//
+//
+//        return activityComponent;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        inject(((ProjectApplication) getApplication()).getcomponent());
-
+        getActivityComponent().inject(this);
     }
-
-
-    protected abstract void inject(ApplicationComponent component);
-
 }

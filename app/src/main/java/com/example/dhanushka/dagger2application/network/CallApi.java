@@ -3,6 +3,7 @@ package com.example.dhanushka.dagger2application.network;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.dhanushka.dagger2application.di.d.ApplicationContext;
 import com.example.dhanushka.dagger2application.helpers.NetworkAccess;
 import com.example.dhanushka.dagger2application.network.model.GithubRepo;
 import com.example.dhanushka.dagger2application.network.model.User;
@@ -10,6 +11,7 @@ import com.example.dhanushka.dagger2application.network.model.User;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,16 +20,17 @@ import retrofit2.Response;
 /**
  * Created by dhanushka on 19/10/2017.
  */
-
+@Singleton
 public class CallApi {
 
-    @Inject
+
     ApiService mSicModul;
-    private Context mContext;
+     Context mContext;
+     @Inject
+    NetworkAccess mNetworkAccess;
 
-
-
-    public CallApi(Context context, ApiService m) {
+    @Inject
+    public CallApi(@ApplicationContext Context context, ApiService m) {
         mContext = context;
         mSicModul = m;
     }
@@ -35,7 +38,7 @@ public class CallApi {
 
     public void getServercal(final GetSDPListCallback callback) {
 
-        if (!NetworkAccess.isNetworkAvailable()) {
+        if (!mNetworkAccess.isNetworkAvailable()) {
             callback.onFailedGetSDPList(null);
             return;
         }

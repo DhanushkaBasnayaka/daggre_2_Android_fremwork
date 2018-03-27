@@ -3,15 +3,21 @@ package com.example.dhanushka.dagger2application.helpers;
 import android.content.Context;
 import android.net.ConnectivityManager;
 
+import com.example.dhanushka.dagger2application.di.d.ApplicationContext;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by dhanushka on 24/10/2017.
  */
-
+@Singleton
 public class NetworkAccess {
 
     private static Context mContext;
 
-    public NetworkAccess(Context context) {
+    @Inject
+    public NetworkAccess(@ApplicationContext Context context) {
         mContext = context;
     }
 
